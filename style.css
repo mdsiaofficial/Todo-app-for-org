@@ -4,6 +4,7 @@
     font-family:monospace, 'Courier New', Courier ;
     box-sizing: border-box;
 }
+
 .title{
     display: flex;
     align-items: center;
