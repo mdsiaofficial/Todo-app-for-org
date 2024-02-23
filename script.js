@@ -6,7 +6,6 @@ const addTask = document.getElementById("addTask");
 
 addTask.addEventListener("click", function(){
 
-
     // here adding the task in the list...
     if(inputBox.value === ""){
         alert("nothing there...");
@@ -26,6 +25,28 @@ addTask.addEventListener("click", function(){
 
 
 });
+
+inputBox.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+        // here adding the task in the list...
+        if(inputBox.value === ""){
+            alert("nothing there...");
+        }else{
+            let li = document.createElement("li");
+            li.innerHTML = inputBox.value;
+            // listContainer.appendChild(li); // add kore last e
+            listContainer.prepend(li); // add kore first theke
+            // listContainer.insertBefore(li, listContainer.firstChild);  // eidao add kore first theke
+            let span = document.createElement("span");
+            span.innerHTML="\u00d7";
+            // span.innerHTML=`<img class="" src="img/cross.png>`;
+            li.appendChild(span); // adding a cross button
+        }
+        inputBox.value = "";
+        saveTask();
+    }
+  });
+
 
 listContainer.addEventListener("click", function(e){
     if(e.target.tagName ==="LI"){
